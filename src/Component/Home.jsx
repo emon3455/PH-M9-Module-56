@@ -44,7 +44,7 @@ const Home = () => {
                 
             </div>
 
-            <div className="cart-conatiner md:w-1/3">
+            <div className="cart-conatiner md:w-1/3 relative">
                 <Cart
                     cart={cart}
                     handleDeleteToCart={handleDeleteToCart}
