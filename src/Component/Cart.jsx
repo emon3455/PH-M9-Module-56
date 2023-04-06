@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
     const Cart = ({cart, handleDeleteToCart}) => {
 
         let total=0;
