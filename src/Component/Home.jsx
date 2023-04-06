@@ -13,6 +13,11 @@ const Home = () => {
         setCart(newProduct);
     }
 
+    const handleDeleteToCart=(id)=>{
+        const remaining = cart.filter(pd=> pd._id !== id);
+        setCart(remaining);
+    }
+
     return (
         <div className='container mx-auto p-1 md:flex my-4 gap-2'>
 
@@ -31,6 +36,7 @@ const Home = () => {
             <div className="cart-conatiner md:w-1/3">
                 <Cart
                     cart={cart}
+                    handleDeleteToCart={handleDeleteToCart}
                 ></Cart>
             </div>
         </div>
