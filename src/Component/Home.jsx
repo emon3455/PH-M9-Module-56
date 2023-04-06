@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Tshirts from './Tshirts';
+import Cart from './Cart';
 
 const Home = () => {
     const tshirts = useLoaderData();
+
+    const [cart, setCart] = useState([]);
+
+    const handleAddToCart =(carts)=>{
+        const newProduct=[...cart,carts];
+        setCart(newProduct);
+    }
 
     return (
         <div className='container mx-auto p-1 md:flex my-4 gap-2'>
@@ -14,13 +22,16 @@ const Home = () => {
                     tshirts.map(tshirt=> <Tshirts
                         key={tshirt._id}
                         tshirt={tshirt}
+                        handleAddToCart={handleAddToCart}
                     ></Tshirts>)
                 }
                 
             </div>
 
             <div className="cart-conatiner md:w-1/3">
-                <h2>cart</h2>
+                <Cart
+                    cart={cart}
+                ></Cart>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Tshirts = ({tshirt}) => {
+const Tshirts = ({tshirt,handleAddToCart}) => {
 
     const {_id , price, picture, name, gender} = tshirt;
 
@@ -12,7 +12,8 @@ const Tshirts = ({tshirt}) => {
             </div>
             <h4 className='text-xl'>Name: <span className='font-semibold'>{name}</span></h4>
             <h4 className='text-xl'>Price: <span className='font-semibold'>{price}</span></h4>
-            <button className='text-white bg-sky-500 text-xl p-1 rounded-xl hover:bg-red-500 duration-500'> Purchase Now </button>
+            <button onClick={()=> handleAddToCart(tshirt)}
+            className='text-white bg-sky-500 text-xl p-1 rounded-xl hover:bg-red-500 duration-500'> Purchase Now </button>
         </div>
     );
 };
