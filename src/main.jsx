@@ -1,17 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-
 import Layout from './Component/Layout';
 import Home from './Component/Home';
 import OrderRevies from './Component/OrderRevies';
 import Contact from './Component/Contact';
 import About from './Component/About';
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 
 const router = createBrowserRouter([
@@ -21,7 +20,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: ()=> fetch("tshirts.json")
       },
       {
         path:  "/about",
