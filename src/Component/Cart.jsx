@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Cart = ({cart, handleDeleteToCart}) => {
 
     return (

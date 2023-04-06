@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Tshirts from './Tshirts';
 import Cart from './Cart';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
     const tshirts = useLoaderData();
@@ -9,8 +11,17 @@ const Home = () => {
     const [cart, setCart] = useState([]);
 
     const handleAddToCart =(carts)=>{
-        const newProduct=[...cart,carts];
-        setCart(newProduct);
+
+        const exist = cart.find(crt=> crt._id === carts._id);
+        if(exist){
+            toast("You have already adeded this one")
+        }
+        else{
+            const newProduct=[...cart,carts];
+            setCart(newProduct);
+        }
+
+        
     }
 
     const handleDeleteToCart=(id)=>{
